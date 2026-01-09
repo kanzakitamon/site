@@ -88,6 +88,13 @@ export const siteConfig = {
       "生成履歴の保存・再ダウンロード",
       "スマホでPDF→コンビニ印刷を想定した導線",
     ],
+    additionalWorks: [
+      {
+        name: "タロミル",
+        description: "悩みを文章で入力し、タロット3枚で鑑定するスマホアプリ。",
+        status: "ストア公開準備中",
+      },
+    ],
     tech: "TypeScript / Next.js / PDF生成",
     url: "https://www.rakupri.com",
     imageUrl: null,
