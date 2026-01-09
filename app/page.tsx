@@ -229,28 +229,6 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  {siteConfig.service.additionalWorks?.length ? (
-                    <div className="mb-8">
-                      <p className="text-sm font-semibold text-slate-500 mb-3">
-                        追加実績
-                      </p>
-                      <div className="space-y-4">
-                        {siteConfig.service.additionalWorks.map((work, index) => (
-                          <div key={index} className="text-slate-600">
-                            <div className="text-lg font-semibold text-slate-800">
-                              {work.name}
-                            </div>
-                            <p className="text-sm text-slate-500 mt-1">
-                              {work.description}
-                            </p>
-                            <p className="text-sm text-slate-400 mt-1">
-                              {work.status}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ) : null}
                   <p className="text-sm text-slate-400 mb-6">
                     技術: {siteConfig.service.tech}
                   </p>
@@ -287,6 +265,30 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            {siteConfig.service.additionalWorks?.length ? (
+              <div className="mt-10">
+                <Card className="bg-white border border-slate-200">
+                  <p className="text-sm font-semibold text-slate-500 mb-4">
+                    追加実績
+                  </p>
+                  <div className="space-y-4">
+                    {siteConfig.service.additionalWorks.map((work, index) => (
+                      <div key={index} className="text-slate-600">
+                        <div className="text-lg font-semibold text-slate-800">
+                          {work.name}
+                        </div>
+                        <p className="text-sm text-slate-500 mt-1">
+                          {work.description}
+                        </p>
+                        <p className="text-sm text-slate-400 mt-1">
+                          {work.status}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </Card>
+              </div>
+            ) : null}
           </div>
         </Section>
 
