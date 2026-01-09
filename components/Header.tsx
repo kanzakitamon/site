@@ -24,7 +24,7 @@ export default function Header() {
             className="text-2xl font-bold text-slate-800 cursor-pointer hover:text-slate-600 transition-colors"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            合同会社Adtunity
+            Adtunity
           </div>
           <nav className="hidden md:flex items-center gap-6">
             {menuItems.map((item) => (

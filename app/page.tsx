@@ -270,7 +270,7 @@ export default function Home() {
         </Section>
 
         {/* 6. 自社サービス：タロミル */}
-        <Section id="taromiru" title={siteConfig.taromiru.title} className="bg-white">
+        <Section id="taromiru" className="bg-white">
           <div className="max-w-6xl mx-auto">
             <div className="bg-slate-50/50 rounded-lg shadow-md overflow-hidden border border-slate-200">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
