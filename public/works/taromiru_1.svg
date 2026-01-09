@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f1932"/>
+      <stop offset="100%" stop-color="#3a2b5c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+  <rect x="160" y="120" width="760" height="840" rx="36" fill="#0f0b1a" opacity="0.7"/>
+  <rect x="210" y="180" width="660" height="520" rx="24" fill="#231a3a"/>
+  <rect x="260" y="240" width="560" height="400" rx="18" fill="#2f2450"/>
+  <circle cx="540" cy="440" r="120" fill="#c8a16a" opacity="0.85"/>
+  <text x="540" y="780" text-anchor="middle" fill="#e9e4f2" font-family="Arial, sans-serif" font-size="48">Taromiru</text>
+  <text x="540" y="835" text-anchor="middle" fill="#b7adcc" font-family="Arial, sans-serif" font-size="24">App Preview</text>
+</svg>

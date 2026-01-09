@@ -265,34 +265,108 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            {siteConfig.service.additionalWorks?.length ? (
-              <div className="mt-10">
-                <Card className="bg-white border border-slate-200">
-                  <p className="text-sm font-semibold text-slate-500 mb-4">
-                    追加実績
-                  </p>
-                  <div className="space-y-4">
-                    {siteConfig.service.additionalWorks.map((work, index) => (
-                      <div key={index} className="text-slate-600">
-                        <div className="text-lg font-semibold text-slate-800">
-                          {work.name}
-                        </div>
-                        <p className="text-sm text-slate-500 mt-1">
-                          {work.description}
-                        </p>
-                        <p className="text-sm text-slate-400 mt-1">
-                          {work.status}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </Card>
-              </div>
-            ) : null}
+            
           </div>
         </Section>
 
-        {/* 6. よくある相談 */}
+        {/* 6. 自社サービス：タロミル */}
+        <Section id="taromiru" title={siteConfig.taromiru.title} className="bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-slate-50/50 rounded-lg shadow-md overflow-hidden border border-slate-200">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                <div className="p-12 lg:p-16 flex flex-col justify-center bg-white">
+                  <h3 className="text-4xl font-bold text-slate-800 mb-6 break-words">
+                    {siteConfig.taromiru.name}
+                  </h3>
+                  <p className="text-xl text-slate-600 mb-8 leading-relaxed break-words">
+                    {siteConfig.taromiru.description}
+                  </p>
+
+                  <div className="space-y-4 mb-8 p-6 bg-white rounded-lg border border-slate-200">
+                    <div>
+                      <span className="text-sm font-semibold text-slate-500">
+                        {siteConfig.taromiru.challenge.title}：
+                      </span>
+                      <span className="text-slate-600 ml-2 break-words">
+                        {siteConfig.taromiru.challenge.content}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-sm font-semibold text-slate-500">
+                        {siteConfig.taromiru.solution.title}：
+                      </span>
+                      <span className="text-slate-600 ml-2 break-words">
+                        {siteConfig.taromiru.solution.content}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-sm font-semibold text-slate-500">
+                        {siteConfig.taromiru.result.title}：
+                      </span>
+                      <span className="text-slate-600 ml-2 break-words">
+                        {siteConfig.taromiru.result.content}
+                      </span>
+                    </div>
+                  </div>
+
+                  <ul className="space-y-4 mb-8">
+                    {siteConfig.taromiru.features.map((feature, index) => (
+                      <li
+                        key={index}
+                        className="flex items-start gap-4 text-slate-600"
+                      >
+                        <span className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-400 text-white flex items-center justify-center text-sm font-bold mt-0.5">
+                          {index + 1}
+                        </span>
+                        <span className="flex-1 text-lg leading-relaxed break-words">
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <p className="text-sm text-slate-400 mb-2">
+                    技術: {siteConfig.taromiru.tech}
+                  </p>
+                  <p className="text-sm text-slate-500 mb-6">
+                    {siteConfig.taromiru.status}
+                  </p>
+                  <Link
+                    href={siteConfig.taromiru.privacyPath}
+                    className="inline-block px-10 py-4 bg-slate-700 text-white font-semibold text-lg rounded-lg hover:bg-slate-800 transition-colors shadow-sm hover:shadow-md"
+                  >
+                    プライバシーポリシーを見る
+                  </Link>
+                </div>
+                <div className="flex flex-col gap-4 p-4 bg-white border-l border-slate-200">
+                  <div className="relative aspect-square bg-white">
+                    <Image
+                      src={siteConfig.taromiru.imageUrls[0]}
+                      alt={`${siteConfig.taromiru.name} - 画像1`}
+                      fill
+                      className="object-contain"
+                      priority
+                      unoptimized
+                    />
+                  </div>
+                  <div className="relative aspect-square bg-white">
+                    <Image
+                      src={siteConfig.taromiru.imageUrls[1]}
+                      alt={`${siteConfig.taromiru.name} - 画像2`}
+                      fill
+                      className="object-contain"
+                      priority
+                      unoptimized
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+
+        {/* 7. よくある相談 */}
         <Section id="consultations" title={siteConfig.consultations.title} className="bg-gray-50/50">
           <div className="max-w-4xl mx-auto">
             <Card className="bg-white border border-slate-200">

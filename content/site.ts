@@ -88,16 +88,37 @@ export const siteConfig = {
       "生成履歴の保存・再ダウンロード",
       "スマホでPDF→コンビニ印刷を想定した導線",
     ],
-    additionalWorks: [
-      {
-        name: "タロミル",
-        description: "悩みを文章で入力し、タロット3枚で鑑定するスマホアプリ。",
-        status: "ストア公開準備中",
-      },
-    ],
     tech: "TypeScript / Next.js / PDF生成",
     url: "https://www.rakupri.com",
     imageUrl: null,
+  },
+  taromiru: {
+    title: "実績",
+    name: "タロミル",
+    description:
+      "悩みを文章で入力し、タロット3枚で鑑定するスマホアプリ。",
+    challenge: {
+      title: "課題",
+      content: "短い相談文でも納得感のある鑑定結果を出すこと",
+    },
+    solution: {
+      title: "解き方",
+      content: "カードの意味を役割別に整理し、結論→現状→障害→助言で構成",
+    },
+    result: {
+      title: "形",
+      content: "入力からカード選択、鑑定結果まで一連で完結する体験",
+    },
+    features: [
+      "相談文入力から鑑定までを最短導線で完結",
+      "状況/障害/助言の3枚構成で読みやすく整理",
+      "鑑定履歴を端末内に保存",
+      "広告視聴による鑑定結果の解放",
+    ],
+    tech: "React Native / Expo / TypeScript",
+    status: "ストア公開準備中",
+    privacyPath: "/privacy/taromiru",
+    imageUrls: ["/works/taromiru_1.svg", "/works/taromiru_2.svg"],
   },
   consultations: {
     title: "よくある相談",
