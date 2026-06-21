@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react";
 
 const menuItems = [
-  { label: "事業内容", id: "services" },
-  { label: "進め方", id: "process" },
   { label: "実績", id: "works" },
   { label: "ご相談例", id: "consultations" },
   { label: "FAQ", id: "faq" },

@@ -7,18 +7,9 @@ import Reveal from "@/components/Reveal";
 import Faq from "@/components/Faq";
 import ContactForm from "@/components/ContactForm";
 import { siteConfig } from "@/content/site";
-import {
-  MobileIcon,
-  SystemIcon,
-  TeamIcon,
-  ArrowRight,
-  CheckIcon,
-  ExternalIcon,
-} from "@/components/icons";
+import { ArrowRight, CheckIcon, ExternalIcon } from "@/components/icons";
 import Image from "next/image";
 import Link from "next/link";
-
-const serviceIcons = [MobileIcon, SystemIcon, TeamIcon];
 
 export default function Home() {
   const goTo = (id: string) => {
@@ -75,14 +66,14 @@ export default function Home() {
               <Reveal delay={300}>
                 <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
                   <button
-                    onClick={() => goTo("contact")}
+                    onClick={() => goTo("works")}
                     className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-ink shadow-lg shadow-black/20 transition-transform hover:-translate-y-0.5 sm:w-auto"
                   >
                     {siteConfig.hero.primaryCta}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </button>
                   <button
-                    onClick={() => goTo("works")}
+                    onClick={() => goTo("contact")}
                     className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur transition-colors hover:bg-white/10 sm:w-auto"
                   >
                     {siteConfig.hero.secondaryCta}
@@ -97,9 +88,11 @@ export default function Home() {
                     <div key={s.label} className="bg-ink/40 px-6 py-7 text-center backdrop-blur ring-hairline">
                       <dt className="text-3xl font-bold text-white">
                         {s.value}
-                        <span className="ml-1 text-base font-medium text-slate-400">
-                          {s.unit}
-                        </span>
+                        {s.unit && (
+                          <span className="ml-1 text-base font-medium text-slate-400">
+                            {s.unit}
+                          </span>
+                        )}
                       </dt>
                       <dd className="mt-2 text-sm leading-relaxed text-slate-400">
                         {s.label}
@@ -110,151 +103,20 @@ export default function Home() {
               </Reveal>
             </div>
           </div>
-
-          {/* bottom fade to white */}
-          <div className="absolute inset-x-0 bottom-0 h-px bg-white/10" aria-hidden />
         </section>
 
-        {/* ============ PHILOSOPHY ============ */}
-        <Section
-          eyebrow={siteConfig.philosophy.eyebrow}
-          title={siteConfig.philosophy.title}
-          className="bg-white"
-        >
-          <Reveal className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="text-lg leading-relaxed text-slate-600 sm:text-xl">
-              {siteConfig.philosophy.main}
-            </p>
-          </Reveal>
-
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
-            {siteConfig.philosophy.points.map((point, i) => (
-              <Reveal key={i} delay={i * 90}>
-                <div className="group h-full rounded-2xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
-                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-brand/10 to-indigo-100 text-lg font-bold text-brand">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-5 text-lg font-bold text-slate-900">
-                    {point.title}
-                  </h3>
-                  <p className="mt-3 text-[15px] leading-relaxed text-slate-600">
-                    {point.body}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal className="mx-auto mt-12 max-w-3xl">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 px-7 py-6 text-center">
-              <p className="leading-relaxed text-slate-700">
-                {siteConfig.philosophy.closing}
-              </p>
-            </div>
-          </Reveal>
-        </Section>
-
-        {/* ============ SERVICES ============ */}
-        <Section
-          id="services"
-          eyebrow={siteConfig.services.eyebrow}
-          title={siteConfig.services.title}
-          lead={siteConfig.services.lead}
-          className="bg-slate-50"
-        >
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {siteConfig.services.items.map((service, i) => {
-              const Icon = serviceIcons[i] ?? MobileIcon;
-              return (
-                <Reveal key={i} delay={i * 90}>
-                  <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(15,23,42,0.10)]">
-                    <span className="absolute inset-x-0 top-0 h-1 scale-x-0 bg-gradient-to-r from-brand to-accent transition-transform duration-300 group-hover:scale-x-100" />
-                    <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-brand to-indigo-600 text-white shadow-md shadow-brand/20">
-                      <Icon className="h-7 w-7" />
-                    </span>
-                    <h3 className="mt-6 text-2xl font-bold text-slate-900">
-                      {service.title}
-                    </h3>
-                    <p className="mt-3 leading-relaxed text-slate-600">
-                      {service.description}
-                    </p>
-                    <div className="mt-6 border-t border-slate-100 pt-5">
-                      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
-                        対応例
-                      </p>
-                      <ul className="space-y-2.5">
-                        {service.examples.map((ex, idx) => (
-                          <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600">
-                            <CheckIcon className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand" />
-                            <span>{ex}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </Section>
-
-        {/* ============ PROCESS ============ */}
-        <Section
-          id="process"
-          eyebrow={siteConfig.process.eyebrow}
-          title={siteConfig.process.title}
-          className="bg-white"
-        >
-          <div className="mx-auto max-w-3xl">
-            <ol className="relative space-y-2">
-              {/* connecting line */}
-              <span className="absolute left-[1.45rem] top-3 bottom-3 w-px bg-gradient-to-b from-brand/40 via-slate-200 to-transparent" aria-hidden />
-              {siteConfig.process.steps.map((step, i) => (
-                <li key={i}>
-                  <Reveal delay={i * 70} className="relative flex gap-5 pb-2">
-                    <span className="relative z-10 grid h-12 w-12 flex-shrink-0 place-items-center rounded-full border border-slate-200 bg-white text-sm font-bold text-brand shadow-sm">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div className="flex-1 rounded-2xl border border-slate-200 bg-white px-6 py-4 transition-colors hover:border-brand/30">
-                      <h3 className="font-bold text-slate-900">{step.title}</h3>
-                      <p className="mt-1 text-[15px] leading-relaxed text-slate-600">
-                        {step.body}
-                      </p>
-                    </div>
-                  </Reveal>
-                </li>
-              ))}
-            </ol>
-            <Reveal className="mt-8">
-              <p className="rounded-2xl bg-slate-50 px-6 py-5 text-center text-sm leading-relaxed text-slate-600">
-                {siteConfig.process.note}
-              </p>
-            </Reveal>
-          </div>
-        </Section>
-
-        {/* ============ WORKS ============ */}
+        {/* ============ WORKS（中心） ============ */}
         <Section
           id="works"
-          eyebrow="Works"
-          title="実績"
-          lead="自社サービスを起点に、企画から運用までの一連を自分たちで運用しています。"
+          eyebrow={siteConfig.works.eyebrow}
+          title={siteConfig.works.title}
+          lead={siteConfig.works.lead}
           className="bg-slate-50"
         >
-          <div className="mx-auto max-w-6xl space-y-8">
-            <WorkCard
-              data={siteConfig.service}
-              cta={{ label: "サービスを見る", href: siteConfig.service.url, external: true }}
-            />
-            <WorkCard
-              data={siteConfig.taromiru}
-              cta={{
-                label: "プライバシーポリシーを見る",
-                href: siteConfig.taromiru.privacyPath,
-                external: false,
-              }}
-              reverse
-            />
+          <div className="mx-auto max-w-6xl space-y-10 sm:space-y-12">
+            {siteConfig.works.items.map((work, i) => (
+              <WorkCard key={work.name} data={work} index={i} reverse={i % 2 === 1} />
+            ))}
           </div>
         </Section>
 
@@ -263,6 +125,7 @@ export default function Home() {
           id="consultations"
           eyebrow={siteConfig.consultations.eyebrow}
           title={siteConfig.consultations.title}
+          lead={siteConfig.consultations.lead}
           className="bg-white"
         >
           <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2">
@@ -355,104 +218,93 @@ export default function Home() {
 interface WorkData {
   name: string;
   category: string;
+  tagline: string;
   description: string;
-  challenge: { title: string; content: string };
-  solution: { title: string; content: string };
-  result: { title: string; content: string };
-  features: string[];
+  points: string[];
   tech: string;
   status?: string;
-  imageUrls: string[];
+  url: string;
+  cover: string;
 }
 
 function WorkCard({
   data,
-  cta,
+  index,
   reverse = false,
 }: {
   data: WorkData;
-  cta: { label: string; href: string; external: boolean };
+  index: number;
   reverse?: boolean;
 }) {
   return (
     <Reveal>
-      <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_1px_3px_rgba(15,23,42,0.04)]">
-        <div className={`grid grid-cols-1 lg:grid-cols-2 ${reverse ? "lg:[direction:rtl]" : ""}`}>
+      <article className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_1px_3px_rgba(15,23,42,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_60px_rgba(15,23,42,0.10)]">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          {/* cover */}
+          <div
+            className={`relative aspect-[1200/630] overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 lg:aspect-auto lg:min-h-[22rem] ${
+              reverse ? "lg:order-2" : ""
+            }`}
+          >
+            <Image
+              src={data.cover}
+              alt={`${data.name} のサービス画面`}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority={index === 0}
+            />
+          </div>
+
           {/* text */}
-          <div className="p-8 sm:p-10 lg:p-12 [direction:ltr]">
-            <span className="inline-flex items-center rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">
-              {data.category}
-            </span>
-            <h3 className="mt-4 text-3xl font-bold text-slate-900">{data.name}</h3>
-            <p className="mt-3 leading-relaxed text-slate-600">{data.description}</p>
-
-            <div className="mt-7 space-y-3">
-              {[data.challenge, data.solution, data.result].map((row, i) => (
-                <div key={i} className="flex gap-3 rounded-xl bg-slate-50 px-4 py-3">
-                  <span className="mt-0.5 flex-shrink-0 text-xs font-bold uppercase tracking-wide text-brand">
-                    {row.title}
-                  </span>
-                  <span className="text-sm leading-relaxed text-slate-700">
-                    {row.content}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <ul className="mt-7 space-y-2.5">
-              {data.features.map((f, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-sm text-slate-600">
-                  <CheckIcon className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand" />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-slate-400">
-              <span>技術：{data.tech}</span>
+          <div className={`p-8 sm:p-10 lg:p-12 ${reverse ? "lg:order-1" : ""}`}>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">
+                {data.category}
+              </span>
               {data.status && (
-                <span className="rounded-full bg-amber-50 px-2.5 py-0.5 font-medium text-amber-700">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                   {data.status}
                 </span>
               )}
             </div>
 
-            <div className="mt-7">
+            <h3 className="mt-5 text-3xl font-bold tracking-tight text-slate-900">
+              {data.name}
+            </h3>
+            <p className="mt-2 text-lg font-medium text-slate-700">
+              {data.tagline}
+            </p>
+            <p className="mt-4 leading-relaxed text-slate-600">
+              {data.description}
+            </p>
+
+            <ul className="mt-6 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+              {data.points.map((p, i) => (
+                <li key={i} className="flex items-start gap-2.5 text-sm text-slate-600">
+                  <CheckIcon className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand" />
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-6 text-xs text-slate-400">技術：{data.tech}</p>
+
+            <div className="mt-6">
               <Link
-                href={cta.href}
-                {...(cta.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="group inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand"
+                href={data.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/btn inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand"
               >
-                {cta.label}
-                {cta.external ? (
-                  <ExternalIcon className="h-4 w-4" />
-                ) : (
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                )}
+                サービスを見る
+                <ExternalIcon className="h-4 w-4" />
               </Link>
             </div>
           </div>
-
-          {/* images */}
-          <div className="flex flex-col gap-4 bg-gradient-to-br from-slate-50 to-slate-100 p-6 sm:p-8 [direction:ltr]">
-            {data.imageUrls.slice(0, 2).map((src, i) => (
-              <div
-                key={i}
-                className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-slate-200 bg-white"
-              >
-                <Image
-                  src={src}
-                  alt={`${data.name} スクリーンショット${i + 1}`}
-                  fill
-                  className="object-contain p-2"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  unoptimized
-                />
-              </div>
-            ))}
-          </div>
         </div>
-      </div>
+      </article>
     </Reveal>
   );
 }

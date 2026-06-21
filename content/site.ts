@@ -1,4 +1,4 @@
-// サイト全体の文言・会社情報・サービス情報を集約
+// サイト全体の文言・会社情報・実績情報を集約
 
 export const siteConfig = {
   company: {
@@ -9,144 +9,80 @@ export const siteConfig = {
     contactEmail: "contact@example.com",
   },
   hero: {
-    eyebrow: "アプリ開発・受託開発・SES",
-    catch: "アプリと業務システムを、\n企画から運用まで。",
-    sub: "合同会社Adtunityは、アプリ開発・受託開発・SESを手がける開発会社です。何を作るかの整理から、開発・公開後の改善運用まで、まとめてお引き受けします。",
-    supplement: "まず小さく公開し、使われ方を見ながら改善していきます。",
-    primaryCta: "相談する",
-    secondaryCta: "実績を見る",
+    eyebrow: "Adtunity Portfolio",
+    catch: "Adtunityがつくった、\n公開中のプロダクト。",
+    sub: "合同会社Adtunityは、アプリやWebサービスを自分たちで企画・開発・運用している開発チームです。受託開発・SESのご相談も承っています。",
+    supplement: "気になるサービスは、そのまま触ってみてください。",
+    primaryCta: "実績を見る",
+    secondaryCta: "お問い合わせ",
   },
   stats: [
-    { value: "3", unit: "領域", label: "アプリ・受託・SESに対応" },
-    { value: "企画", unit: "から", label: "要件整理から運用まで一貫" },
-    { value: "最小版", unit: "起点", label: "早く出して改善する開発" },
+    { value: "3", unit: "サービス", label: "自社で公開・運用中" },
+    { value: "受託", unit: "対応", label: "アプリ・業務システム開発" },
+    { value: "SES", unit: "対応", label: "開発現場への参画" },
   ],
-  philosophy: {
-    eyebrow: "Our Approach",
-    title: "大切にしている3つの考え方",
-    main: "開発は、コードを書く作業よりも「何を作るかを決める作業」のほうが難しい。だからAdtunityは、開発を始める前に目的と優先順位をはっきりさせます。",
-    points: [
-      {
-        title: "目的をあいまいにしない",
-        body: "「何のために作るのか」を最初に言葉にし、判断の基準をそろえてから着手します。",
-      },
-      {
-        title: "やらないことを決める",
-        body: "重要度の低い機能は思いきって後回しにし、本当に必要なものから作ります。",
-      },
-      {
-        title: "改善し続けられる形に保つ",
-        body: "公開後も直しやすいよう、シンプルで読みやすい作りを大切にします。",
-      },
-    ],
-    closing: "最初から完璧を狙うより、改善できる形で早く公開する。それが結果的に、いちばん早くゴールに近づく方法だと考えています。",
-  },
-  services: {
-    eyebrow: "Services",
-    title: "事業内容",
-    lead: "アプリ・業務システムの開発から、現場への参画まで。プロジェクトの形に合わせて関わり方を選べます。",
+  works: {
+    eyebrow: "Works",
+    title: "実績",
+    lead: "アプリやWebサービスを、自分たちで企画・開発・運用しています。気になるものは実際に触ってみてください。",
     items: [
       {
-        title: "アプリ開発",
-        description: "スマホアプリの企画・開発から、公開後の改善までを担当します。",
-        examples: [
-          "新規アプリの立ち上げ（最小版を作って改善）",
-          "既存アプリの機能追加・使い勝手の改善",
-          "通知・ログイン・課金・地図などの基本機能",
+        name: "うちプリ！",
+        category: "Webサービス",
+        tagline: "小学生の学習プリントを、すぐに作れる。",
+        description:
+          "学年と単元を選ぶだけで、印刷してすぐ使える問題と解答のプリントを自動生成。スマホからコンビニ印刷までつなげられます。",
+        points: [
+          "学年・単元を選ぶだけで自動生成",
+          "問題＋解答の2ページPDFを出力",
+          "登録不要・作成履歴から再ダウンロード",
+          "スマホ→コンビニ印刷を想定した導線",
         ],
+        tech: "Next.js / TypeScript / PDF生成",
+        status: "公開中（2026/7/31まで無料）",
+        url: "https://www.rakupri.com",
+        cover: "https://www.rakupri.com/og-image.png",
       },
       {
-        title: "受託開発",
-        description: "業務の流れを整理し、運用で迷わない仕組みを設計・開発します。",
-        examples: [
-          "管理画面・申請・予約・在庫・集計などのシステム",
-          "既存システムの改修・置き換え",
-          "運用で詰まる箇所への先回り（入力ミス・権限・検索など）",
+        name: "こども個性マップ診断",
+        category: "Webサービス / 診断",
+        tagline: "わが子の「好き」と「得意」を、見える化する。",
+        description:
+          "観察質問と実技チェックから、子どもの個性を10タイプで可視化。相性の良い習い事まで提案します。登録不要・端末内で完結します。",
+        points: [
+          "個性を10分類のマップで表示",
+          "12の基礎能力をレーダーで可視化",
+          "14種類の習い事との相性を提案",
+          "登録不要・完全オフライン動作",
         ],
+        tech: "Next.js / TypeScript",
+        status: "公開中（基本無料・詳細レポート¥380）",
+        url: "https://kodomo.omonch.jp",
+        cover: "https://kodomo.omonch.jp/og.png",
       },
       {
-        title: "SES",
-        description: "お客様の開発現場に参加し、設計・実装・保守・改善を担います。",
-        examples: [
-          "仕様整理・改修・保守・調査・速度改善",
-          "引き継ぎを前提にした実装（読める・直せる・壊れにくい）",
+        name: "ふたり暮らし負担診断",
+        category: "Webサービス / 診断",
+        tagline: "ふたりの「負担バランス」を、3分で見える化。",
+        description:
+          "家事・生活費・育児・価値観の負担バランスと意見の一致度を診断。結果はパートナーにURLで共有でき、話し合いのきっかけになります。",
+        points: [
+          "約3分・登録不要で診断",
+          "負担バランスと一致度を可視化",
+          "結果をURLでパートナーに共有",
+          "端末内保存でプライバシーに配慮",
         ],
+        tech: "Next.js / TypeScript",
+        status: "公開中（基本無料・詳細レポート¥480〜）",
+        url: "https://futari.omonch.jp",
+        cover: "https://futari.omonch.jp/og.png",
       },
     ],
-  },
-  process: {
-    eyebrow: "Process",
-    title: "進め方",
-    steps: [
-      { title: "目的の確認", body: "何を達成したいかを言葉にして共有します。" },
-      { title: "優先順位の整理", body: "今やる・後でやる・やらないを決めます。" },
-      { title: "画面と動きの確定", body: "迷いが出そうな場所を先に潰します。" },
-      { title: "最小版の開発", body: "まず動くものを作って確かめます。" },
-      { title: "確認と改善", body: "使って分かったことを反映します。" },
-      { title: "公開・運用", body: "不具合対応と改善が回る状態にします。" },
-    ],
-    note: "途中で要件が変わることは前提にしています。変わっても破綻しない作り方を選びます。",
-  },
-  service: {
-    title: "実績",
-    name: "うちプリ！",
-    category: "自社サービス / Webアプリ",
-    description:
-      "小学1年生向けの算数プリントを、ルールに沿って自動生成し、PDFで出力できるWebサービス。",
-    challenge: {
-      title: "課題",
-      content: "保護者が「今の理解度に合うプリント」を用意するのは手間が大きい。",
-    },
-    solution: {
-      title: "アプローチ",
-      content: "問題をルールで自動生成し、解答まで一緒にPDFで出力できるようにした。",
-    },
-    result: {
-      title: "成果",
-      content: "スマホで作って、そのままコンビニ印刷へつなげられる導線を実現。",
-    },
-    features: [
-      "問題＋解答の2ページPDFを生成",
-      "分野と出題数を選んで作成",
-      "生成履歴の保存・再ダウンロード",
-      "スマホでPDF→コンビニ印刷を想定した導線",
-    ],
-    tech: "TypeScript / Next.js / PDF生成",
-    url: "https://www.rakupri.com",
-    imageUrls: ["/works/uchipri_PC.png", "/works/uchipri_PC2.png"],
-  },
-  taromiru: {
-    title: "実績",
-    name: "タロミル",
-    category: "自社サービス / モバイルアプリ",
-    description:
-      "悩みを文章で入力すると、タロット3枚で鑑定するスマホアプリ。",
-    challenge: {
-      title: "課題",
-      content: "短い相談文でも、納得感のある鑑定結果を出すこと。",
-    },
-    solution: {
-      title: "アプローチ",
-      content: "カードの意味を役割別に整理し、結論→現状→障害→助言の流れで構成した。",
-    },
-    result: {
-      title: "成果",
-      content: "入力からカード選択、鑑定結果まで一連で完結する体験を実現。",
-    },
-    features: [
-      "相談文の入力から鑑定までを最短の導線で完結",
-      "現状・障害・助言の3枚構成で読みやすく整理",
-      "鑑定履歴を端末内に保存",
-      "広告視聴による鑑定結果の解放",
-    ],
-    tech: "React Native / Expo / TypeScript",
-    status: "ストア公開準備中",
-    privacyPath: "/privacy/taromiru",
-    imageUrls: ["/works/taromiru_1.svg", "/works/taromiru_2.svg"],
   },
   consultations: {
     eyebrow: "Use Cases",
     title: "こんなご相談をいただきます",
+    lead: "自社開発で得た知見を活かして、受託開発・SESのご相談もお受けしています。",
     items: [
       "何を作るべきかという段階から相談したい",
       "最小版だけ先に出して、反応を見たい",
@@ -181,26 +117,11 @@ export const siteConfig = {
   privacy: {
     title: "個人情報の取り扱い",
     sections: [
-      {
-        title: "取得する情報",
-        content: "氏名、会社名、メールアドレス、お問い合わせ内容",
-      },
-      {
-        title: "利用目的",
-        content: "お問い合わせへの回答・連絡",
-      },
-      {
-        title: "第三者提供",
-        content: "法令等を除き行いません",
-      },
-      {
-        title: "保管期間",
-        content: "対応に必要な期間",
-      },
-      {
-        title: "管理",
-        content: "適切な安全管理を行います",
-      },
+      { title: "取得する情報", content: "氏名、会社名、メールアドレス、お問い合わせ内容" },
+      { title: "利用目的", content: "お問い合わせへの回答・連絡" },
+      { title: "第三者提供", content: "法令等を除き行いません" },
+      { title: "保管期間", content: "対応に必要な期間" },
+      { title: "管理", content: "適切な安全管理を行います" },
       {
         title: "連絡先",
         content: "合同会社Adtunity（メールアドレスはサイト内に記載）",
