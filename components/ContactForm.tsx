@@ -87,7 +87,7 @@ export default function ContactForm() {
           );
         }
       }
-    } catch (error) {
+    } catch {
       setSubmitError("送信に失敗しました。時間をおいて再度お試しください。");
     } finally {
       setIsSubmitting(false);
@@ -130,14 +130,14 @@ export default function ContactForm() {
           id="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition-colors focus:border-brand focus:ring-2 focus:ring-brand/25 focus:outline-none"
         />
       </div>
 
       <div>
         <label
           htmlFor="company"
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="block text-sm font-medium text-slate-700 mb-1.5"
         >
           会社名
         </label>
@@ -146,14 +146,14 @@ export default function ContactForm() {
           id="company"
           value={company}
           onChange={(e) => setCompany(e.target.value)}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition-colors focus:border-brand focus:ring-2 focus:ring-brand/25 focus:outline-none"
         />
       </div>
 
       <div>
         <label
           htmlFor="email"
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="block text-sm font-medium text-slate-700 mb-1.5"
         >
           メールアドレス <span className="text-red-500">*</span>
         </label>
@@ -163,7 +163,7 @@ export default function ContactForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition-colors focus:border-brand focus:ring-2 focus:ring-brand/25 focus:outline-none"
         />
         {errors.email && (
           <p className="mt-1 text-sm text-red-600">{errors.email}</p>
@@ -173,7 +173,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="block text-sm font-medium text-slate-700 mb-1.5"
         >
           お問い合わせ内容 <span className="text-red-500">*</span>
         </label>
@@ -183,7 +183,7 @@ export default function ContactForm() {
           onChange={(e) => setMessage(e.target.value)}
           required
           rows={6}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition-colors focus:border-brand focus:ring-2 focus:ring-brand/25 focus:outline-none"
         />
         {errors.message && (
           <p className="mt-1 text-sm text-red-600">{errors.message}</p>
@@ -196,12 +196,12 @@ export default function ContactForm() {
             type="checkbox"
             checked={agree}
             onChange={(e) => setAgree(e.target.checked)}
-            className="mt-1 mr-2"
+            className="mt-1 mr-2.5 h-4 w-4 accent-brand"
           />
-          <span className="text-sm text-gray-700">
+          <span className="text-sm text-slate-600">
             <Link
               href="/privacy"
-              className="text-blue-600 hover:text-blue-700 underline"
+              className="font-medium text-brand underline underline-offset-2 hover:text-brand-dark"
             >
               個人情報の取り扱い
             </Link>
@@ -216,9 +216,14 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full sm:w-auto px-8 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-slate-900 px-8 py-3.5 font-semibold text-white shadow-sm transition-colors hover:bg-brand disabled:cursor-not-allowed disabled:bg-slate-400 sm:w-auto"
       >
         {isSubmitting ? "送信中…" : "送信する"}
+        {!isSubmitting && (
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+            <path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        )}
       </button>
     </form>
   );
